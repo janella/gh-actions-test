@@ -4,8 +4,8 @@ version = 3
 
 [[package]]
 name = "lib-1"
-version = "0.1.0"
+version = "1.22.0"
 
 [[package]]
 name = "lib-2"
-version = "0.1.0"
+version = "1.22.0"
