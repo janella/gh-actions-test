@@ -10,3 +10,14 @@ jobs:
       - uses: google-github-actions/release-please-action@44c30b36230f7335e5da53e297d931807ccea116 # v3
         with:
           command: manifest
+
+      - run: echo ${{ steps.release.outputs }} >> $GITHUB_OUTPUT
+
+      - run: echo "A release was created."
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - run: echo "Release ${{ steps.release.outputs['crates/lib-1--tag_name'] }} created for lib-1."
+        if: ${{ steps.release.outputs['crates/lib-1--release_created'] }}
+
+      - run: echo "Release ${{ steps.release.outputs['crates/lib-2--tag_name'] }} created for lib-2."
+        if: ${{ steps.release.outputs['crates/lib-2--release_created'] }}
