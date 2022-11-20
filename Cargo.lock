@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "lib-1"
-version = "1.22.2"
+version = "1.22.3"
 
 [[package]]
 name = "lib-2"
