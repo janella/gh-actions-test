@@ -1,0 +1,26 @@
+name: release wasm
+on:
+  release:
+    types:
+      - released
+
+concurrency: ${{ github.ref }}
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check release details
+        # split name        lib-1: v1.22.0
+        # split tag_name    lib-1-v1.22.0
+        #                   split by `-v`, tag_split[0]
+        run: |
+          echo 'name: ${{ github.event.release.name }}'
+          echo 'tag_name: ${{ github.event.release.tag_name }}'
+          RELEASE_TAG=${{ github.event.release.tag_name }}
+          echo ${RELEASE_TAG%-v*}
+
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          persist-credentials: false

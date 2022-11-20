@@ -1,0 +1,15 @@
+{
+  "changelog-path": "CHANGELOG.md",
+  "release-type": "rust",
+  "include-v-in-tag": true,
+  "packages": {
+    "crates/lib-1": {},
+    "crates/lib-2": {}
+  },
+  "plugins": [
+    {
+      "type": "cargo-workspace"
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}
