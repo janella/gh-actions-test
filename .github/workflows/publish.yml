@@ -2,7 +2,7 @@ name: release wasm
 on:
   release:
     types:
-      - released
+      - created
 
 concurrency: ${{ github.ref }}
 jobs:
