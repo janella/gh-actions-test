@@ -1,3 +1,3 @@
 fn main() {
-    println!("Hello, world! (lib 1)");
+    println!("Hello, world! (lib 1 update)");
 }
