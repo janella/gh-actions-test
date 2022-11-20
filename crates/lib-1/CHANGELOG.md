@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.3](https://github.com/janella/gh-actions-test/compare/lib-1-v1.22.2...lib-1-v1.22.3) (2022-11-20)
+
+
+### Bug Fixes
+
+* update to lib1 ([118936d](https://github.com/janella/gh-actions-test/commit/118936d125cb3890ce421a978fb979756b426fc3))
+
 ## [1.22.2](https://github.com/janella/gh-actions-test/compare/lib-1-v1.22.1...lib-1-v1.22.2) (2022-11-20)
 
 
