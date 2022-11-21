@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.5](https://github.com/janella/gh-actions-test/compare/lib-1-v1.22.4...lib-1-v1.22.5) (2022-11-21)
+
+
+### Bug Fixes
+
+* both crates ([fca179d](https://github.com/janella/gh-actions-test/commit/fca179d98b0fff8296d3f171ee75a2845dfa01e1))
+
 ## [1.22.4](https://github.com/janella/gh-actions-test/compare/lib-1-v1.22.3...lib-1-v1.22.4) (2022-11-21)
 
 
