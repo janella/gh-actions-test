@@ -4,7 +4,7 @@ on:
       - main
 name: release-please
 jobs:
-  release-please:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@44c30b36230f7335e5da53e297d931807ccea116 # v3
@@ -14,49 +14,27 @@ jobs:
       - run: echo "A release was created."
         if: ${{ steps.release.outputs.releases_created }}
     outputs:
-      lib-1-created: ${{ steps.release.outputs['crates/lib-1--release_created'] }}
-      lib-2-created: ${{ steps.release.outputs['crates/lib-2--release_created'] }}
       lib-1-tag_name: ${{ steps.release.outputs['crates/lib-1--tag_name'] }}
       lib-2-tag_name: ${{ steps.release.outputs['crates/lib-2--tag_name'] }}
 
   release-lib-1:
     runs-on: ubuntu-latest
-    needs: [release-please]
-    if: ${{ needs.release-please.outputs.lib-1-created }}
+    needs: [release]
+    if: ${{ needs.release.outputs.lib-1-tag_name }}
     steps:
-      - run: echo "Release ${{ needs.release-please.outputs.lib-1-tag_name }} created for lib-1."
+      - run: echo "Release ${{ needs.release.outputs.lib-1-tag_name }} created for lib-1."
       - run: |
-          echo 'tag_name: ${{ needs.release-please.outputs.lib-1-tag_name }}'
-          RELEASE_TAG=${{ needs.release-please.outputs.lib-1-tag_name }}
+          echo 'tag_name: ${{ needs.release.outputs.lib-1-tag_name }}'
+          RELEASE_TAG=${{ needs.release.outputs.lib-1-tag_name }}
           echo ${RELEASE_TAG%-v*}
 
   release-lib-2:
     runs-on: ubuntu-latest
-    needs: [release-please]
-    if: ${{ needs.release-please.outputs.lib-2-created }}
+    needs: [release]
+    if: ${{ needs.release.outputs.lib-2-tag_name }}
     steps:
-      - run: echo "Release ${{ needs.release-please.outputs.lib-2-tag_name }} created for lib-2."
+      - run: echo "Release ${{ needs.release.outputs.lib-2-tag_name }} created for lib-2."
       - run: |
-          echo 'tag_name: ${{ needs.release-please.outputs.lib-2-tag_name }}'
-          RELEASE_TAG=${{ needs.release-please.outputs.lib-2-tag_name }}
+          echo 'tag_name: ${{ needs.release.outputs.lib-2-tag_name }}'
+          RELEASE_TAG=${{ needs.release.outputs.lib-2-tag_name }}
           echo ${RELEASE_TAG%-v*}
-
-  publish:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - crate: lib-1
-            path: crates/lib-1
-          - crate: lib-2
-            path: crates/lib-2
-    env:
-      TAG_NAME: ${{ needs.release-please.outputs[join([matrix.crate, 'tag_name'], '-')] }}
-    steps:
-      - run: echo "Release $TAG_NAME created for ${{ matrix.crate }}."
-        if: ${{ needs.release-please.outputs[join([matrix.crate, 'created'], '-')] }}
-      - id: release-crate
-        if: ${{ needs.release-please.outputs[join([matrix.crate, 'created'], '-')] }}
-        run: |
-          echo 'tag_name: $TAG_NAME'
-          echo ${TAG_NAME%-v*}
