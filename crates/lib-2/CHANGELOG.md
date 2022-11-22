@@ -2,6 +2,13 @@
 
 
 
+## [1.23.2](https://github.com/janella/gh-actions-test/compare/lib-2-v1.23.1...lib-2-v1.23.2) (2022-11-22)
+
+
+### Bug Fixes
+
+* bump all again ([f41b8c7](https://github.com/janella/gh-actions-test/commit/f41b8c76ddf702bb96bc2ece137ba6b994e57756))
+
 ## [1.23.0](https://github.com/janella/gh-actions-test/compare/lib-2-v1.22.2...lib-2-v1.23.0) (2022-11-22)
 
 
