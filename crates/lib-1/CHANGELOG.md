@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/janella/gh-actions-test/compare/lib-1-v1.22.5...lib-1-v1.23.0) (2022-11-22)
+
+
+### Features
+
+* use a shared base lib somewhere ([7f94fef](https://github.com/janella/gh-actions-test/commit/7f94fef042cb30000373cd313a68ea7acbff0eb6))
+
 ## [1.22.5](https://github.com/janella/gh-actions-test/compare/lib-1-v1.22.4...lib-1-v1.22.5) (2022-11-21)
 
 
