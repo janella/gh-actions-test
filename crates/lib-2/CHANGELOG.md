@@ -2,6 +2,13 @@
 
 
 
+## [1.23.3](https://github.com/janella/gh-actions-test/compare/lib-2-v1.23.2...lib-2-v1.23.3) (2022-11-22)
+
+
+### Bug Fixes
+
+* change to a lib ([c18b8b8](https://github.com/janella/gh-actions-test/commit/c18b8b885a4f2f80b23060fc5c6b0bd7d4d58395))
+
 ## [1.23.2](https://github.com/janella/gh-actions-test/compare/lib-2-v1.23.1...lib-2-v1.23.2) (2022-11-22)
 
 
