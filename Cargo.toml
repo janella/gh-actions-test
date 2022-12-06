@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "crates/lib-1",
+  "crates/lib-2",
+  "crates/dep-1"
+]
