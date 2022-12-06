@@ -2,6 +2,13 @@
 
 
 
+## [1.24.0](https://github.com/janella/gh-actions-test/compare/lib-1-v1.23.3...lib-1-v1.24.0) (2022-12-06)
+
+
+### Features
+
+* remove the actual dep ([b4c4b3f](https://github.com/janella/gh-actions-test/commit/b4c4b3fa7d20e0003ea365b02b29b23b69e2ec55))
+
 ## [1.23.3](https://github.com/janella/gh-actions-test/compare/lib-1-v1.23.2...lib-1-v1.23.3) (2022-11-22)
 
 
