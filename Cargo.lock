@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "dep-1"
-version = "1.23.4"
+version = "1.23.5"
 
 [[package]]
 name = "lib-1"
@@ -12,7 +12,7 @@ version = "1.24.0"
 
 [[package]]
 name = "lib-2"
-version = "1.23.4"
+version = "1.23.5"
 dependencies = [
  "dep-1",
 ]
