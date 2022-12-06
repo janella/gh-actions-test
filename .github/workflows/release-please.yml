@@ -20,7 +20,7 @@ jobs:
       re_sign_commit: ${{ steps.release.outputs.pr }}
       release_branch_name: ${{ steps.release.outputs.pr && fromJSON(steps.release.outputs.pr).headBranchName }}
 
-  # workaround because the Release-Please GHA does not sign GPG commits
+  # workaround because the Release-Please GHA does not sign GPG commits.
   # we need to amend the head commit from the release PR.
   sign-release-commit:
     needs: [release]
