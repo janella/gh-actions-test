@@ -13,9 +13,26 @@ jobs:
           command: manifest
       - run: echo "A release was created."
         if: ${{ steps.release.outputs.releases_created }}
+      - run: echo ${{ steps.release.outputs.pr.headBranchName }}
     outputs:
       lib-1-tag_name: ${{ steps.release.outputs['crates/lib-1--tag_name'] }}
       lib-2-tag_name: ${{ steps.release.outputs['crates/lib-2--tag_name'] }}
+      open_pr: ${{ steps.release.outputs.pr.headBranchName }}
+
+  # workaround because the Release-Please GHA does not sign GPG commits
+  # we need to amend the head commit from the release PR.
+  sign-release-commit:
+    needs: [release]
+    if: ${{ needs.release.outputs.open_pr }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          ref: origin/${{ needs.release.outputs.open_pr }}
+      - run: |
+          RELEASE_COMMIT=$(git rev-parse origin/${{ needs.release.outputs.open_pr }})
+          git commit --amend --no-edit -S -c $RELEASE_COMMIT
+          git push --force-with-lease origin ${{ needs.release.outputs.open_pr }}
 
   release-lib-1:
     runs-on: ubuntu-latest
