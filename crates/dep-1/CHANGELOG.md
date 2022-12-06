@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.4](https://github.com/janella/gh-actions-test/compare/dep-1-v1.23.3...dep-1-v1.23.4) (2022-12-06)
+
+
+### Bug Fixes
+
+* dep update ([32dc443](https://github.com/janella/gh-actions-test/commit/32dc44313ff04d1f2c5f2bebb18cb5f69ffe3583))
+
 ## [1.23.3](https://github.com/janella/gh-actions-test/compare/dep-1-v0.3.1...dep-1-v1.23.3) (2022-11-22)
 
 

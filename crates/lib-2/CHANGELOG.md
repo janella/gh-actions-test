@@ -2,6 +2,13 @@
 
 
 
+## [1.23.4](https://github.com/janella/gh-actions-test/compare/lib-2-v1.23.3...lib-2-v1.23.4) (2022-12-06)
+
+
+### Miscellaneous Chores
+
+* **lib-2:** Synchronize undefined versions
+
 ## [1.23.3](https://github.com/janella/gh-actions-test/compare/lib-2-v1.23.2...lib-2-v1.23.3) (2022-11-22)
 
 
