@@ -34,6 +34,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
+          git config user.name janella
+          git config user.email 694610+janella@users.noreply.github.com
           RELEASE_COMMIT=$(git rev-parse origin/${{ needs.release.outputs.release_branch_name }})
           git commit --amend --no-edit -S -c $RELEASE_COMMIT
           git push --force-with-lease origin ${{ needs.release.outputs.release_branch_name }}
