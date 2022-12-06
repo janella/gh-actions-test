@@ -28,6 +28,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          ref: ${{ needs.release.outputs.release_branch_name }}
+          # fetching all commits since we're rewriting history
+          # without this, we end up with an orphaned branch
+          fetch-depth: 0
       - name: sign the release commit
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -35,9 +40,9 @@ jobs:
           git branch --show-current
           git config user.name janella
           git config user.email 694610+janella@users.noreply.github.com
-          RELEASE_COMMIT=$(git rev-parse origin/${{ needs.release.outputs.release_branch_name }})
-          git cherry-pick -S $RELEASE_COMMIT
-          git push --force-with-lease origin main:${{ needs.release.outputs.release_branch_name }}
+          RELEASE_COMMIT=$(git rev-parse origin/${{ needs.release-please.outputs.release_branch_name }})
+          git commit --amend --no-edit -S -c $RELEASE_COMMIT
+          git push --force-with-lease origin ${{ needs.release.outputs.release_branch_name }}
 
   release-lib-1:
     runs-on: ubuntu-latest
